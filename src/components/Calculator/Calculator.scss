@@ -1,0 +1,11 @@
+.Calculator {
+  display: grid;
+  justify-content: center;
+  gap: 25px;
+  padding-top: 10%;
+
+  &__operator {
+    padding-left: 5px;
+    color: #9c27b0;
+  }
+}

@@ -1,5 +1,4 @@
 export const calculatorNumbers = [
-  "0",
   "1",
   "2",
   "3",
@@ -9,6 +8,16 @@ export const calculatorNumbers = [
   "7",
   "8",
   "9",
+  "0",
 ];
 
 export const calculatorSymbols = ["+", "-", "*", "/"];
+
+export const operationSymbols = {
+  "*": "Multiply",
+  "/": "Divide",
+  "-": "Subtract",
+  "+": "Addition",
+};
+
+export const specialSymbols = ["=", "Clear"];

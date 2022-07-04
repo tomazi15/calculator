@@ -7,6 +7,7 @@ import { addSymbol } from "../../features/calculatorSlice";
 import { useDispatch, useSelector } from "react-redux";
 import addFirstOrSecondNumber from "../../helpers/addFirstOrSecondNumber";
 import { isNumberOrSymbol } from "../../helpers/isNumberOrSymbol";
+import "./NumbersButton.scss";
 
 const NumbersButton = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const NumbersButton = () => {
   };
 
   return (
-    <>
+    <div className="NumbersButton">
       {calculatorNumbers.map((number, index) => {
         return (
           <Button
@@ -44,7 +45,7 @@ const NumbersButton = () => {
           </Button>
         );
       })}
-    </>
+    </div>
   );
 };
 
