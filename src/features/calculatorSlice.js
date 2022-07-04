@@ -4,13 +4,14 @@ const initialState = {
   firstNumber: "",
   secondNumber: "",
   symbol: "",
+  result: "",
 };
 
 export const calculatorNumberSlice = createSlice({
   name: "calculatorNumber",
   initialState,
   reducers: {
-    addNumber: (state, action) => {
+    addFirstNumber: (state, action) => {
       state.firstNumber += action.payload;
     },
     addSecondNumber: (state, action) => {
@@ -22,6 +23,6 @@ export const calculatorNumberSlice = createSlice({
   },
 });
 
-export const { addNumber, addSecondNumber, addSymbol } =
+export const { addFirstNumber, addSecondNumber, addSymbol } =
   calculatorNumberSlice.actions;
 export default calculatorNumberSlice.reducer;

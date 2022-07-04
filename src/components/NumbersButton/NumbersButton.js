@@ -3,29 +3,19 @@ import {
   calculatorNumbers,
   calculatorSymbols,
 } from "../../data/claculatorSymbols";
-import {
-  addNumber,
-  addSymbol,
-  addSecondNumber,
-} from "../../features/calculatorSlice";
+import { addSymbol } from "../../features/calculatorSlice";
 import { useDispatch, useSelector } from "react-redux";
+import addFirstOrSecondNumber from "../../helpers/addFirstOrSecondNumber";
+import { isNumberOrSymbol } from "../../helpers/isNumberOrSymbol";
 
 const NumbersButton = () => {
   const dispatch = useDispatch();
   const symbolValue = useSelector((state) => state.calculator.symbol);
 
-  console.log(symbolValue.length);
-
-  const helperFunction = (value) =>
-    symbolValue.length !== 0
-      ? dispatch(addSecondNumber(value))
-      : dispatch(addNumber(value));
-
   const handleNumberClick = (e) => {
-    const numberOrSymbol = calculatorSymbols.some((x) => x === e.target.value);
-    numberOrSymbol
+    isNumberOrSymbol(e.target.value)
       ? dispatch(addSymbol(e.target.value))
-      : helperFunction(e.target.value);
+      : addFirstOrSecondNumber(e.target.value, symbolValue, dispatch);
   };
 
   return (
