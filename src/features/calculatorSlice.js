@@ -1,12 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = {
-  firstNumber: "",
-  secondNumber: "",
-  symbol: "",
-  result: "",
-  memory: [],
-};
+import { resetState, initialState } from "./helpers/stateSliceHelpers";
+import { calculateSummery } from "./helpers/calculateSummery";
 
 export const calculatorNumberSlice = createSlice({
   name: "calculatorNumber",
@@ -22,46 +16,11 @@ export const calculatorNumberSlice = createSlice({
       state.symbol = action.payload;
     },
     getSummery: (state, action) => {
-      action.payload.map((payload) => {
-        if (payload === "+") {
-          state.result = (
-            Number(state.firstNumber) + Number(state.secondNumber)
-          ).toFixed(2);
-          state.firstNumber = "";
-          state.secondNumber = "";
-          state.symbol = "";
-        }
-        if (payload === "-") {
-          state.result = (
-            Number(state.firstNumber) - Number(state.secondNumber)
-          ).toFixed(2);
-          state.firstNumber = "";
-          state.secondNumber = "";
-          state.symbol = "";
-        }
-        if (payload === "*") {
-          (state.result =
-            Number(state.firstNumber) * Number(state.secondNumber)).toFixed(2);
-          state.firstNumber = "";
-          state.secondNumber = "";
-          state.symbol = "";
-        }
-        if (payload === "/") {
-          state.result = (
-            Number(state.firstNumber) / Number(state.secondNumber)
-          ).toFixed(2);
-          state.firstNumber = "";
-          state.secondNumber = "";
-          state.symbol = "";
-        }
-      });
+      calculateSummery(state, action);
       state.memory.push(state.result);
     },
     clearStore: (state) => {
-      state.firstNumber = "";
-      state.secondNumber = "";
-      state.symbol = "";
-      state.result = "";
+      resetState(state, true);
     },
   },
 });
