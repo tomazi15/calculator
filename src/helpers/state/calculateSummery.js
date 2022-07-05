@@ -1,7 +1,7 @@
 import { resetState } from "./stateSliceHelpers";
 
 export const calculateSummery = (state, action) => {
-  action.payload.map((payload) => {
+  action.payload.forEach((payload) => {
     if (payload === "+") {
       state.result = (
         Number(state.firstNumber) + Number(state.secondNumber)

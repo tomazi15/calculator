@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { resetState, initialState } from "./helpers/stateSliceHelpers";
-import { calculateSummery } from "./helpers/calculateSummery";
+import { resetState, initialState } from "../helpers/state/stateSliceHelpers";
+import { calculateSummery } from "../helpers/state/calculateSummery";
 
 export const calculatorNumberSlice = createSlice({
   name: "calculatorNumber",
