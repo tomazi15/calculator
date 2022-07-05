@@ -13,6 +13,7 @@ const Calculator = () => {
   );
   const symbolValue = useSelector((state) => state.calculator.symbol);
   const resultValue = useSelector((state) => state.calculator.result);
+  const resultsMemory = useSelector((state) => state.calculator.memory);
 
   return (
     <div className="Calculator">
@@ -45,7 +46,10 @@ const Calculator = () => {
 
       <NumbersButton />
       <ActionsButton />
-      <RecentHistoryResults />
+
+      {resultsMemory.length > 0 && (
+        <RecentHistoryResults resultsMemory={resultsMemory} />
+      )}
     </div>
   );
 };

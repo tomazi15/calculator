@@ -1,12 +1,7 @@
 import { Chip } from "@mui/material";
-import { useSelector } from "react-redux";
 import "./RecentHistoryResults.scss";
 
-const RecentHistoryResults = () => {
-  const resultsMemory = useSelector((state) => state.calculator.memory);
-
-  console.log(resultsMemory);
-
+const RecentHistoryResults = ({ resultsMemory }) => {
   return (
     <div className="RecentHistoryResults">
       Recent Results:
