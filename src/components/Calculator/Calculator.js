@@ -1,8 +1,9 @@
 import { TextField } from "@mui/material";
 import { useSelector } from "react-redux";
 import { operationSymbols } from "../../data/claculatorSymbols";
-import ActionsButton from "../ClearButton/ActionsButton";
+import ActionsButton from "../ActionButton/ActionsButton";
 import NumbersButton from "../NumbersButton/NumbersButton";
+import RecentHistoryResults from "../RecentHistoryResults/RecentHistoryResults";
 import "./Calculator.scss";
 
 const Calculator = () => {
@@ -11,6 +12,7 @@ const Calculator = () => {
     (state) => state.calculator.secondNumber
   );
   const symbolValue = useSelector((state) => state.calculator.symbol);
+  const resultValue = useSelector((state) => state.calculator.result);
 
   return (
     <div className="Calculator">
@@ -22,6 +24,11 @@ const Calculator = () => {
         value={firstNumberValue}
         disabled
       />
+      <strong>
+        <span className="Calculator__operator">
+          {operationSymbols[symbolValue]}
+        </span>
+      </strong>
       <TextField
         className="Calculator__secondNumber"
         id="outlined-basic"
@@ -30,16 +37,15 @@ const Calculator = () => {
         disabled
       />
       <p>
-        Operation:
+        Result:
         <strong>
-          <span className="Calculator__operator">
-            {operationSymbols[symbolValue]}
-          </span>
+          <span className="Calculator__result"> {resultValue}</span>
         </strong>
       </p>
-      <span>Result: {"TBC"}</span>
+
       <NumbersButton />
       <ActionsButton />
+      <RecentHistoryResults />
     </div>
   );
 };
