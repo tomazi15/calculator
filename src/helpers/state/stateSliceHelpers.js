@@ -7,7 +7,6 @@ export const initialState = {
 };
 
 export const resetState = (state, resetResults) => {
-  console.log(resetResults);
   state.firstNumber = "";
   state.secondNumber = "";
   state.symbol = "";

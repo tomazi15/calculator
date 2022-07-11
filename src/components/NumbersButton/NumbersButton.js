@@ -20,7 +20,7 @@ const NumbersButton = () => {
   };
 
   return (
-    <div className="NumbersButton">
+    <div data-testid="numberButtons" className="NumbersButton">
       {calculatorNumbers.map((number, index) => {
         return (
           <Button

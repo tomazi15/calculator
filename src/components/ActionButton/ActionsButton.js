@@ -20,7 +20,7 @@ const ActionsButton = () => {
   };
 
   return (
-    <div className="ActionsButton">
+    <div data-testid="actionButtons" className="ActionsButton">
       <Button
         key="equals"
         value="="

@@ -17,20 +17,23 @@ const Calculator = () => {
 
   return (
     <div className="Calculator">
-      <TextField
-        className="Calculator__firstNumber"
-        color="secondary"
-        id="outlined-basic"
-        variant="outlined"
-        value={firstNumberValue}
-        disabled
-      />
+      <div>
+        <TextField
+          className="Calculator__firstNumber"
+          inputProps={{ "aria-label": "firstNumber" }}
+          id="outlined-basic"
+          variant="outlined"
+          value={firstNumberValue}
+          disabled
+        />
+      </div>
       <strong>
-        <span className="Calculator__operator">
+        <span data-testid="operator" className="Calculator__operator">
           {operationSymbols[symbolValue]}
         </span>
       </strong>
       <TextField
+        inputProps={{ "aria-label": "secondNumber" }}
         className="Calculator__secondNumber"
         id="outlined-basic"
         variant="outlined"
@@ -40,7 +43,9 @@ const Calculator = () => {
       <p>
         Result:
         <strong>
-          <span className="Calculator__result"> {resultValue}</span>
+          <span data-testid="result" className="Calculator__result">
+            {resultValue}
+          </span>
         </strong>
       </p>
 
