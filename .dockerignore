@@ -1,0 +1,6 @@
+# ALl files that are not required in the container
+Dockerfile
+.dockerignore
+.gitignore
+
+node_modules
