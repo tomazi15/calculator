@@ -1,18 +1,33 @@
 import addFirstOrSecondNumber from "./addFirstOrSecondNumber";
-import { useDispatch } from "react-redux";
-import { addFirstNumber, addSecondNumber } from "../features/calculatorSlice";
+
+const mockDispatch = jest.fn();
 
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
-  useDispatch: () => jest.fn(),
+  useDispatch: () => mockDispatch,
 }));
 
 describe("addFirstOrSecondNumber", () => {
-  // test("HELLO", () => {
-  //   expect(addFirstOrSecondNumber).toHaveBeenCalledWith("4", "", useDispatch);
-  // });
+  test("if the user does not select symbol character the first number will be added", () => {
+    const payloadMock = {
+      payload: "4",
+      type: "calculatorNumber/addFirstNumber",
+    };
 
-  test("HELLO", () => {
-    expect(true).toBe(true);
+    addFirstOrSecondNumber("4", "", mockDispatch);
+
+    expect(mockDispatch).toHaveBeenCalledTimes(1);
+    expect(mockDispatch).toHaveBeenCalledWith(payloadMock);
+  });
+
+  test("if the user selects symbol second number will be added", () => {
+    const payloadMock = {
+      payload: "",
+      type: "calculatorNumber/addSecondNumber",
+    };
+
+    addFirstOrSecondNumber("", "/", mockDispatch);
+    expect(mockDispatch).toHaveBeenCalledTimes(1);
+    expect(mockDispatch).toHaveBeenCalledWith(payloadMock);
   });
 });
