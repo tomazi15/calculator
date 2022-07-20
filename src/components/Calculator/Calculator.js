@@ -17,6 +17,7 @@ const Calculator = () => {
 
   return (
     <div className="Calculator">
+      <h2>Calculator</h2>
       <div>
         <TextField
           inputProps={{ "aria-label": "firstNumber" }}
