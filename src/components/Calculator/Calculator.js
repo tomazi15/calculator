@@ -19,8 +19,8 @@ const Calculator = () => {
     <div className="Calculator">
       <div>
         <TextField
-          className="Calculator__firstNumber"
           inputProps={{ "aria-label": "firstNumber" }}
+          className="Calculator__firstNumber"
           id="outlined-basic"
           variant="outlined"
           value={firstNumberValue}
